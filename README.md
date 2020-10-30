@@ -42,13 +42,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### ##############################
 ###  Git
 ### ##############################
-1- Creation du repo domotique sur GitHub.com
-2- Add .gitignore file to project
-3- git init
-4- git add .
-5- git commit -m "init repo"
-6-git remote add origin https://github.com/seammour/domotique.git
-7- git push -u origin master
+
+## 1- Creation du repo domotique sur GitHub.com
+## 2- Add .gitignore file to project
+## 3- git init
+## 4- git add .
+## 5- git commit -m "init repo"
+## 6-git remote add origin https://github.com/seammour/domotique.git
+## 7- git push -u origin master
 
 
 
