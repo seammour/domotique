@@ -1,0 +1,7 @@
+<h2>Authentification</h2>
+<button class="btn btn-success" *ngIf="!authSattus" (click)="onSignOn()">
+    Se connecter
+</button>
+<button class="btn btn-danger" *ngIf="authSattus" (click)="onSignOut()">
+    Se déconnecter
+</button>
