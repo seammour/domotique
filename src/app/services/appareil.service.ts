@@ -1,18 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AppareilService {
 
   appareilSubject = new Subject<any[]>();
-  private appareils = [
-    { id: 1, name: 'Machine à laver', status: 'eteint' },
-    { id: 2, name: 'Télé', status: 'allumé' },
-    { id: 3, name: 'ordi', status: 'eteint' }
-  ];
-  constructor() { }
+  private appareils = [];
+  constructor(private httpClient: HttpClient) { }
 
   emitAppareilSubject() {
     this.appareilSubject.next(this.appareils.slice());
@@ -58,5 +53,32 @@ export class AppareilService {
       appareilObject.id = this.appareils[(this.appareils.length -1)].id +1;
       this.appareils.push(appareilObject);
       this.emitAppareilSubject();
+  }
+  saveAppareilsToServer(){
+    this.httpClient.put('https://domotique-74669.firebaseio.com/appareils.json', this.appareils)
+    .subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+        
+      },
+      (error) => {
+        console.log('Error de sauvegarde !' + error);
+        
+      }
+    )
+  }
+
+  getAppareilsFromServer() {
+    this.httpClient.get<any[]>('https://domotique-74669.firebaseio.com/appareils.json')
+    .subscribe(
+      (response) => {
+        this.appareils = response;
+        this.emitAppareilSubject();
+      },
+      (error) => {
+        console.log('Error de chargement');
+        
+      }
+    )
   }
 }

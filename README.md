@@ -1,4 +1,35 @@
-# PremierProjet
+
+# Projet Domotique
+
+### Ajout du back-End FireBase
+## 1- Allez à FireBase : https://firebase.google.com/ 
+## 2- Se authentifier avec un compte Google ou Créer un nouveau.
+## 3- Allez à la console : https://console.firebase.google.com/
+## 4- Ajouter un nouveau projet
+## 5- Preciser le nom et le pays du projet
+## 6- Cliquer sur le menu Database
+## 7- Puis sur le lien le RealTime Database
+## 8- puis sur l'onglet Regles et rendre l'accessibilité public en mettant true dans le read et le write(le problème est que tout le monde peut ecrire et lire la base de données )
+
+### Requete du fetch 
+```javascript
+this.httpClient.get<any[]>('https://domotique-74669.firebaseio.com/appareils.json')
+    .subscribe(
+      (response) => {
+        this.appareils = response;
+        this.emitAppareilSubject();
+      },
+      (error) => {
+        console.log('Error de chargement');
+        
+      }
+    )
+```
+
+Importer dans appModule le module HttpClientModule puis l'ajouter dans les imports
+
+Si la ligne est dubliquer il faut donc utiliser this.httpClient.put au lieu de this.httpClient.post 
+
 
 # install angular CLI
 # ensemble de commandes permettant de creer des elements de l'application angular
@@ -50,6 +81,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## 5- git commit -m "init repo"
 ## 6-git remote add origin https://github.com/seammour/domotique.git
 ## 7- git push -u origin master
+
+### ##############################
+###  Git - Creation Tag
+### ##############################
+## git tag -a v1.0.0 -m "Reactive Formulaire"
+## git tag
+## git push origin v1.0.0
 
 
 

@@ -11,7 +11,11 @@
              [id]="appareil.id" ></app-appareil>
     </ul>
     <button class="btn btn-success" 
-    (click)="onAllumeTous()"
-    >Tous allumés</button>
-    <button class="btn btn-danger" (click)="onEteintTous()">Etteindre tous</button>
+    (click)="onAllumeTous()">Tous allumés</button>
+    <button class="btn btn-danger" 
+    (click)="onEteintTous()">Etteindre tous</button>
+    <button class="btn btn-success" 
+    (click)="onSave()">Eregistrer</button>
+    <button class="btn btn-primary" 
+    (click)="onFetch()">Charger</button>
   </div>
